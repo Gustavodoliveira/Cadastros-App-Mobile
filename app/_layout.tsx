@@ -1,37 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { Stack, Tabs } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
+const _layout = () => {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "blue",
+        tabBarStyle: style.tabBar,
+      }}
+    >
+      <Tabs.Screen
+        name="Index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="home" size={24} color={`${color}`} />
+          ),
+        }}
+      />
+      <Tabs.Screen name="Login" options={{ title: "Login" }} />
+    </Tabs>
   );
-}
+};
+
+const style = StyleSheet.create({
+  tabBar: {
+    display: "flex",
+    gap: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 60,
+    maxWidth: "85%",
+    margin: "auto",
+    marginVertical: 30,
+    padding: 8,
+    borderRadius: 100,
+    shadowOffset: { width: 5, height: 10 },
+    shadowColor: "001212",
+    shadowRadius: 4,
+    shadowOpacity: 0.5,
+  },
+});
+
+export default _layout;

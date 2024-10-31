@@ -1,10 +1,12 @@
+import Form from "@/components/Form";
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 
 const index = () => {
   return (
     <View>
-      <Text> Ola</Text>
+      <Text>Register</Text>
+      <Form />
     </View>
   );
 };

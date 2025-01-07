@@ -10,5 +10,6 @@ export const Colors = {
   light: '#fff',
   dark: '#000',
   btnColor: '#3B82F6',
-  btnText: '#BBF7D0'
+  btnText: '#BBF7D0',
+  BgColor: '#E2E8F0'
 };

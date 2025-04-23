@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     display: "flex",
     backgroundColor: Colors.btnColor,
+    marginLeft: 30,
     borderRadius: 20,
     width: 150,
     height: 42,

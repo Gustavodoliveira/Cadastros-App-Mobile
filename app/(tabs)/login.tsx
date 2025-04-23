@@ -13,12 +13,12 @@ const login = () => {
       <Text style={styles.h1}>Login</Text>
       <Form>
         <Input
-          onChangeText={(text) => console.log(text)}
+          onChangeText={(text: string) => console.log(text)}
           placeHolder={"E-mail"}
           iconName="mail"
         />
         <Input
-          onChangeText={(text) => console.log(text)}
+          onChangeText={(text: string) => console.log(text)}
           placeHolder={"Password"}
           iconName="lock-closed-outline"
         />
@@ -28,7 +28,11 @@ const login = () => {
           Icon={<Ionicons name="send" size={16} color={Colors.btnText} />}
         />
       </Form>
-      <LinkNavigation text={"link up"} page={"/register"} />
+      <LinkNavigation
+        text={"If you not register in app, Click here for register"}
+        page={"/register"}
+        style={styles.text}
+      />
     </View>
   );
 };
@@ -41,5 +45,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "400",
     marginTop: 150,
+  },
+  text: {
+    marginTop: 20,
+    margin: "auto",
+    justifyContent: "center",
   },
 });

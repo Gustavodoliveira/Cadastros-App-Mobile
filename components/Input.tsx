@@ -40,8 +40,8 @@ const style = StyleSheet.create({
     height: "100%",
     width: "100%",
     backgroundColor: Colors.BgColor,
-    paddingHorizontal: 25,
+    paddingHorizontal: 20,
     flex: 1,
   },
-  inputIcon: { position: "absolute", right: 5, top: 11 },
+  inputIcon: { position: "absolute", right: 10, top: 11 },
 });
